@@ -47,7 +47,7 @@ public class UsersController {
 	@PostMapping("/userlogin")
 	public HttpStatus userAuth(@RequestBody User user) {
 		User temp=userService.getUser(user.getcard_id());
-		if(temp.getPassword().equals(user.getPassword()))
+		if(temp!=null&&temp.getPassword().equals(user.getPassword()))
 			return HttpStatus.ACCEPTED;
 		return HttpStatus.NOT_ACCEPTABLE;
 	}
@@ -55,7 +55,7 @@ public class UsersController {
 	@PostMapping("/admin")
 	public HttpStatus adminAuthentication(@RequestBody Librarian librian) {
 		Librarian admin=adminRepo.findById(librian.getId());
-		if(admin.getPassword().equals(librian.getPassword()))
+		if(admin!=null&&admin.getPassword().equals(librian.getPassword()))
 			return HttpStatus.ACCEPTED;
 		return HttpStatus.NOT_ACCEPTABLE;
 		
