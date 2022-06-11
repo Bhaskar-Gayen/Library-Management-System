@@ -19,9 +19,7 @@ public class BorrowService {
 	
 	//Checking
 	public ResponseEntity<String> checkIn(Borrow borrow){
-		
-		Borrow bo=new Borrow(new BorrowId(1,2),"10-12-21","",0);
-		borrowRepo.save(bo);
+		borrowRepo.save(borrow);
 		return ResponseEntity.status(HttpStatus.OK).body("Successfully done");
 	}
 	
@@ -34,7 +32,7 @@ public class BorrowService {
 		borrow.setCheckOut(LocalDate.now().toString());
 		borrow.setFine(panalty);
 		borrowRepo.save(borrow);
-		return ResponseEntity.status(HttpStatus.CREATED).body("Success and panalty: "+panalty+".");
+		return ResponseEntity.status(HttpStatus.CREATED).body("Success and panalty: "+panalty);
 	}
 	
 	//penalty calculate
