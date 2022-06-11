@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2022 at 05:27 PM
+-- Generation Time: Jun 11, 2022 at 03:56 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -62,7 +62,13 @@ CREATE TABLE `borrow` (
 --
 
 INSERT INTO `borrow` (`card_id`, `book_id`, `check_in`, `check_out`, `fine`) VALUES
-(2, 1, '10-12-21', '', 0);
+(2, 0, '11-2-20', '', 0),
+(2, 1, '10-12-21', '', 0),
+(70, 0, '2020-12-20', '2022-06-11', 100),
+(900, 0, '11-2-20', '', 0),
+(7070, 0, '2022-05-20', '2022-06-11', 0),
+(7800, 0, '11-2-20', '', 0),
+(7890, 0, '11-2-20', '', 0);
 
 -- --------------------------------------------------------
 
@@ -75,6 +81,13 @@ CREATE TABLE `librarian` (
   `name` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `librarian`
+--
+
+INSERT INTO `librarian` (`id`, `name`, `password`) VALUES
+(110, 'Test Admin', '321');
 
 -- --------------------------------------------------------
 
